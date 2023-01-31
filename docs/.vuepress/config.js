@@ -1,7 +1,6 @@
 module.exports = {
     title: 'LukePan',
     description: 'LukePan的文档',
-    base: '/pyy07.github.io/',
     locales: {
         '/': {
             lang: 'zh-CN'
