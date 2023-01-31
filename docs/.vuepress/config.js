@@ -7,19 +7,19 @@ module.exports = {
         }
     },
     themeConfig: {
-        subSidebar: 'auto',
         nav: [
             { text: '首页', link: '/' },
-            { text: '金融', link: '/' },
-            { text: '电商', link: '/' },
-            { text: '游戏', link: '/' },
-            { text: '通信', link: '/' },
+            { text: '金融', link: '/fintech/' },
+            { text: '电商', link: '/ecommerce/' },
+            { text: '游戏', link: '/games/' },
+            { text: '通信', link: '/telecom/' },
         ],
-        sidebar: [
-            {
-                title: '欢迎',
-                path: '/',
-            },
-        ]
+        sidebar: {
+            '/fintech/': [
+                'trade',
+                'algorithm'
+            ],
+            '/': []
+        }
     }
 }
