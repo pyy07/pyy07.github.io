@@ -10,7 +10,7 @@
     "docs:dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
     "docs:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs"
   },
-  "devDependencies": {
+  "dependencies": {
     "cross-env": "^7.0.3",
     "vuepress": "^1.9.10"
   }
