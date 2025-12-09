@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function TelecomPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50">
+    <main className="min-h-screen relative">
       <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.div

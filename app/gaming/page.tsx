@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function GamingPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+    <main className="min-h-screen relative">
       <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.div

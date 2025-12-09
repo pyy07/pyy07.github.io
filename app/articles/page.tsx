@@ -30,7 +30,7 @@ export default function ArticlesPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
+    <main className="min-h-screen relative">
       <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.div
