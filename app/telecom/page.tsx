@@ -10,7 +10,7 @@ export default function TelecomPage() {
   return (
     <main className="min-h-screen relative pb-20">
       <Header />
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function TelecomPage() {
             ← 返回首页
           </Link>
 
-          <div className="bg-white rounded-lg shadow-xl p-8 border border-slate-200">
+          <div className="bg-white rounded-lg shadow-xl p-4 sm:p-8 border border-slate-200">
             <div className="mb-6">
               <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 mb-4">
                 2007-2012
@@ -59,11 +59,11 @@ export default function TelecomPage() {
                 <li>团队管理和技术领导</li>
               </ul>
 
-              <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-6 sm:mt-8 mb-4">
                 CDMA 网络架构
               </h2>
-              <div className="mt-6 mb-8 overflow-hidden rounded-lg border border-slate-200 bg-white">
-                <div className="w-full h-auto">
+              <div className="mt-4 sm:mt-6 mb-6 sm:mb-8 rounded-lg border border-slate-200 bg-white overflow-x-auto">
+                <div className="min-w-full">
                   <CDMANetworkDiagram />
                 </div>
               </div>

@@ -1,5 +1,5 @@
 export default function CDMANetworkDiagram() {
-    return (<svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+    return (<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto min-w-[600px] sm:min-w-0" preserveAspectRatio="xMidYMid meet">
         {/* Definitions for gradients and markers */}
         <defs>
             <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
