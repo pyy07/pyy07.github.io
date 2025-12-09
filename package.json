@@ -1,17 +1,32 @@
 {
   "name": "LukePan",
   "version": "1.0.0",
-  "description": "LukePan's doc",
+  "description": "LukePan的个人职业展示网站",
   "main": "index.js",
   "repository": "https://github.com/pyy07/pyy07.github.io",
   "author": "pyy07@sohu.com",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
-    "docs:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "cross-env": "^7.0.3",
+    "framer-motion": "^12.23.25",
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "typescript": "^5.9.3",
     "vuepress": "^1.9.10"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
   }
 }
