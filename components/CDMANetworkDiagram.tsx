@@ -1,0 +1,151 @@
+export default function CDMANetworkDiagram() {
+    return (<svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        {/* Definitions for gradients and markers */}
+        <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#bdc3c7" />
+            </marker>
+            <filter id="shadow">
+                <feDropShadow dx="2" dy="2" stdDeviation="3" floodOpacity="0.3"/>
+            </filter>
+            <radialGradient id="signalGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" stopColor="rgb(255, 165, 0)" stopOpacity={1} />
+                <stop offset="100%" stopColor="rgb(255, 69, 0)" stopOpacity={0} />
+            </radialGradient>
+        </defs>
+    
+        {/* Background Grid (Optional aesthetic) */}
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+    
+        {/* === INFRASTRUCTURE DRAWING === */}
+    
+        {/* Connection Lines (Cables/Links) */}
+        <g stroke="#95a5a6" stroke-width="4" fill="none">
+            {/* Path: MS1 -> BTS1 -> BSC1 -> MSC -> BSC2 -> BTS2 -> MS2 */}
+            <line x1="100" y1="350" x2="200" y2="250" stroke-dasharray="5,5" /> {/* Wireless */}
+            <line x1="200" y1="250" x2="350" y2="250" /> {/* Backhaul */}
+            <line x1="350" y1="250" x2="500" y2="150" /> {/* To Core */}
+            <line x1="500" y1="150" x2="650" y2="250" /> {/* From Core */}
+            <line x1="650" y1="250" x2="800" y2="250" /> {/* Backhaul */}
+            <line x1="800" y1="250" x2="900" y2="350" stroke-dasharray="5,5" /> {/* Wireless */}
+        </g>
+    
+        {/* 1. Mobile Station (Caller) */}
+        <g transform="translate(70, 340)" filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="100" rx="8" fill="#34495e" />
+            <rect x="5" y="5" width="50" height="80" fill="#ecf0f1" />
+            <circle cx="30" cy="92" r="4" fill="#bdc3c7" />
+            <text x="30" y="120" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50" font-weight="bold">MS (Caller)</text>
+            <text x="30" y="45" text-anchor="middle" font-family="Arial" font-size="10" fill="#7f8c8d">CDMA Encoded</text>
+        </g>
+    
+        {/* 2. BTS 1 (Base Station) */}
+        <g transform="translate(170, 200)" filter="url(#shadow)">
+            <path d="M30 0 L60 80 L0 80 Z" fill="#7f8c8d" />
+            <line x1="30" y1="0" x2="30" y2="-30" stroke="#7f8c8d" stroke-width="4" />
+            <path d="M10 -30 L50 -30 M15 -20 L45 -20 M20 -10 L40 -10" stroke="#3498db" stroke-width="3" />
+            <text x="30" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">BTS</text>
+        </g>
+    
+        {/* 3. BSC 1 (Controller) */}
+        <g transform="translate(320, 220)" filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="60" fill="#9b59b6" rx="5" />
+            <text x="30" y="35" text-anchor="middle" fill="white" font-family="Arial" font-size="12">BSC</text>
+            <text x="30" y="80" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">BSC</text>
+        </g>
+    
+        {/* 4. MSC / Core Network */}
+        <g transform="translate(450, 100)" filter="url(#shadow)">
+            <path d="M20 50 Q0 50 0 30 Q0 0 30 0 Q50 -20 70 0 Q100 0 100 30 Q100 50 80 50 Z" fill="#e74c3c" transform="scale(1.2)" />
+            <text x="60" y="35" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">MSC / Core</text>
+            <text x="60" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#c0392b">Switching & HLR</text>
+            
+            {/* Processing Animation (Pulsing Ring) */}
+            <circle cx="60" cy="30" r="40" fill="none" stroke="white" stroke-width="2" opacity="0">
+                <animate attributeName="r" values="30;50" dur="1s" begin="2s" repeatCount="3" />
+                <animate attributeName="opacity" values="0.8;0" dur="1s" begin="2s" repeatCount="3" />
+            </circle>
+        </g>
+    
+        {/* 5. BSC 2 (Target Controller) */}
+        <g transform="translate(620, 220)" filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="60" fill="#9b59b6" rx="5" />
+            <text x="30" y="35" text-anchor="middle" fill="white" font-family="Arial" font-size="12">BSC</text>
+            <text x="30" y="80" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">BSC</text>
+        </g>
+    
+        {/* 6. BTS 2 (Target Base Station) */}
+        <g transform="translate(770, 200)" filter="url(#shadow)">
+            <path d="M30 0 L60 80 L0 80 Z" fill="#7f8c8d" />
+            <line x1="30" y1="0" x2="30" y2="-30" stroke="#7f8c8d" stroke-width="4" />
+            <path d="M10 -30 L50 -30 M15 -20 L45 -20 M20 -10 L40 -10" stroke="#2ecc71" stroke-width="3" />
+            <text x="30" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">BTS</text>
+        </g>
+    
+        {/* 7. Mobile Station (Receiver) */}
+        <g transform="translate(870, 340)" filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="100" rx="8" fill="#34495e" />
+            <rect x="5" y="5" width="50" height="80" fill="#ecf0f1" />
+            <circle cx="30" cy="92" r="4" fill="#bdc3c7" />
+            <text x="30" y="120" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50" font-weight="bold">MS (Target)</text>
+            
+            {/* Ringing Animation */}
+            <g opacity="0">
+                <path d="M-10 20 Q-20 40 -10 60" stroke="#e67e22" stroke-width="3" fill="none" />
+                <path d="M70 20 Q80 40 70 60" stroke="#e67e22" stroke-width="3" fill="none" />
+                <animate attributeName="opacity" values="0;1;0;1" dur="1s" begin="5s" fill="freeze" />
+            </g>
+        </g>
+    
+        {/* === ANIMATION LAYER === */}
+    
+        {/* The Data Packet / Signal */}
+        <circle r="8" fill="url(#signalGlow)" stroke="#d35400" stroke-width="1">
+            {/* Define the motion path */}
+            <animateMotion dur="6s" repeatCount="indefinite" path="
+                M 100,390 
+                L 200,250 
+                L 350,250 
+                L 510,130 
+                L 650,250 
+                L 800,250 
+                L 900,390
+            " keyPoints="0;0.2;0.35;0.5;0.65;0.8;1" keyTimes="0;0.2;0.35;0.5;0.65;0.8;1" calcMode="linear"/>
+            
+            {/* Signal pulsing while moving */}
+            <animate attributeName="r" values="8;12;8" dur="0.5s" repeatCount="indefinite" />
+        </circle>
+    
+        {/* Status Text Animation */}
+        <text x="500" y="50" text-anchor="middle" font-family="monospace" font-size="16" fill="#2c3e50" font-weight="bold">
+            <tspan id="statusText">Status: Standby</tspan>
+        </text>
+    
+        {/* SMIL Animation for Text Updates */}
+        <set xlinkHref="#statusText" attributeName="visibility" to="visible" />
+        <animate xlinkHref="#statusText" attributeName="fill" values="#2c3e50;#e67e22;#e74c3c;#27ae60;#2c3e50" dur="6s" repeatCount="indefinite" />
+        
+        {/* We use a trick with multiple text elements fading in/out to simulate changing text in pure SVG without JS */}
+        <g font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">
+            <text x="500" y="80" fill="#e67e22" opacity="0">
+                1. Access & Spreading (CDMA)
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.25;0.3" dur="6s" repeatCount="indefinite" />
+            </text>
+            <text x="500" y="80" fill="#8e44ad" opacity="0">
+                2. Base Station Control
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0.3;0.35;0.45;0.5" dur="6s" repeatCount="indefinite" />
+            </text>
+            <text x="500" y="80" fill="#c0392b" opacity="0">
+                3. Core Switching & Routing
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0.5;0.55;0.65;0.7" dur="6s" repeatCount="indefinite" />
+            </text>
+             <text x="500" y="80" fill="#27ae60" opacity="0">
+                4. Connection Established
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0.75;0.8;0.95;1" dur="6s" repeatCount="indefinite" />
+            </text>
+        </g>
+    </svg>);
+}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CDMANetworkDiagram from "@/components/CDMANetworkDiagram";
 
 export default function TelecomPage() {
   return (
@@ -62,11 +63,9 @@ export default function TelecomPage() {
                 CDMA 网络架构
               </h2>
               <div className="mt-6 mb-8 overflow-hidden rounded-lg border border-slate-200 bg-white">
-                <img
-                  src="/cdma_network.svg"
-                  alt="CDMA 网络架构图"
-                  className="w-full h-auto"
-                />
+                <div className="w-full h-auto">
+                  <CDMANetworkDiagram />
+                </div>
               </div>
 
               <div className="mt-12 p-4 bg-blue-50 rounded-lg border border-blue-200">
