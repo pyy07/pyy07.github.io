@@ -125,16 +125,16 @@ export default function ThemeCard({ theme, index }: { theme: Theme; index: numbe
             rotateY,
             transformStyle: "preserve-3d",
           }}
-          className="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-1 cursor-pointer"
+          className="relative h-full overflow-hidden rounded-2xl bg-white shadow-lg p-1 cursor-pointer hover:shadow-xl transition-shadow"
         >
           {/* Gradient border with glow */}
           <motion.div
-            className={`absolute inset-0 bg-gradient-to-r ${theme.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl`}
+            className={`absolute inset-0 bg-gradient-to-r ${theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl`}
             style={{ transform: "translateZ(0px)" }}
           />
           
           <motion.div
-            className="relative h-full bg-slate-900 rounded-2xl p-8 flex flex-col"
+            className="relative h-full bg-white rounded-2xl p-8 flex flex-col"
             style={{ transform: "translateZ(20px)" }}
           >
             {/* Icon */}
@@ -142,14 +142,14 @@ export default function ThemeCard({ theme, index }: { theme: Theme; index: numbe
               <div className="text-6xl mb-4">
                 {theme.icon}
               </div>
-              <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${theme.gradient} mb-3`}>
+              <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${theme.gradient} mb-3 shadow-md`}>
                 {theme.subtitle}
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2">{theme.title}</h2>
+              <h2 className="text-3xl font-bold text-slate-900 mb-2">{theme.title}</h2>
             </div>
 
             {/* Description */}
-            <p className="text-slate-300 mb-6 leading-relaxed flex-1" style={{ transform: "translateZ(10px)" }}>
+            <p className="text-slate-600 mb-6 leading-relaxed flex-1" style={{ transform: "translateZ(10px)" }}>
               {theme.description}
             </p>
 
@@ -166,17 +166,17 @@ export default function ThemeCard({ theme, index }: { theme: Theme; index: numbe
                   style={{ transform: `translateZ(${idx * 5}px)` }}
                 >
                   <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${theme.gradient}`} />
-                  <span className="text-sm text-slate-400">{highlight}</span>
+                  <span className="text-sm text-slate-600">{highlight}</span>
                 </motion.div>
               ))}
             </div>
 
             {/* CTA with 3D effect */}
             <div
-              className="flex items-center justify-between pt-4 border-t border-slate-700"
+              className="flex items-center justify-between pt-4 border-t border-slate-200"
               style={{ transform: "translateZ(25px)" }}
             >
-              <span className="text-sm font-semibold text-slate-400 group-hover:text-white transition-colors">
+              <span className="text-sm font-semibold text-slate-500 group-hover:text-purple-600 transition-colors">
                 探索详情
               </span>
               <motion.div
@@ -190,15 +190,15 @@ export default function ThemeCard({ theme, index }: { theme: Theme; index: numbe
 
             {/* Hover effect overlay with 3D */}
             <motion.div
-              className={`absolute inset-0 bg-gradient-to-r ${theme.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
+              className={`absolute inset-0 bg-gradient-to-r ${theme.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}
               style={{ transform: "translateZ(5px)" }}
             />
             
             {/* Shine effect */}
             <motion.div
-              className="absolute inset-0 opacity-0 group-hover:opacity-20"
+              className="absolute inset-0 opacity-0 group-hover:opacity-30"
               style={{
-                background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.5) 50%, transparent 54%)",
+                background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.8) 45%, rgba(255,255,255,0.8) 50%, transparent 54%)",
                 transform: "translateZ(30px)",
               }}
               animate={{

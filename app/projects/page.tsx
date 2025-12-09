@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.div
@@ -15,12 +15,12 @@ export default function ProjectsPage() {
           transition={{ duration: 0.6 }}
           className="max-w-6xl mx-auto"
         >
-          <h1 className="text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-8 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
             项目
           </h1>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-            <p className="text-slate-300 text-lg">
+          <div className="bg-white rounded-lg shadow-md p-8 border border-slate-200">
+            <p className="text-slate-600 text-lg">
               项目展示页面，后续可以添加项目列表和详情。
             </p>
           </div>
@@ -30,4 +30,3 @@ export default function ProjectsPage() {
     </main>
   );
 }
-

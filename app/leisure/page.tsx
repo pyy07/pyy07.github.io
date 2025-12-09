@@ -13,7 +13,7 @@ export default function LeisurePage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       <Header />
       <div className="container mx-auto px-4 py-8">
         <motion.div
@@ -23,14 +23,14 @@ export default function LeisurePage() {
           className="max-w-7xl mx-auto"
         >
           <div className="mb-4">
-            <h1 className="text-3xl font-bold text-white mb-2">休闲</h1>
-            <p className="text-slate-300">来自 games.227studio.cn 的内容</p>
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">休闲</h1>
+            <p className="text-slate-600">来自 games.227studio.cn 的内容</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden border border-slate-200" style={{ height: 'calc(100vh - 200px)' }}>
             {isLoading ? (
               <div className="flex items-center justify-center h-full">
-                <div className="text-slate-300">加载中...</div>
+                <div className="text-slate-600">加载中...</div>
               </div>
             ) : (
               <iframe
@@ -48,4 +48,3 @@ export default function LeisurePage() {
     </main>
   );
 }
-

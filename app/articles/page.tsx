@@ -30,7 +30,7 @@ export default function ArticlesPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.div
@@ -39,14 +39,14 @@ export default function ArticlesPage() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-8 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
             文章
           </h1>
 
           <div className="space-y-4">
             {articles.length === 0 ? (
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center">
-                <p className="text-slate-300">暂无文章，请添加 markdown 文件到 articles/ 目录</p>
+              <div className="bg-white rounded-lg shadow-md p-8 text-center border border-slate-200">
+                <p className="text-slate-600">暂无文章，请添加 markdown 文件到 articles/ 目录</p>
               </div>
             ) : (
               articles.map((article, index) => (
@@ -57,15 +57,15 @@ export default function ArticlesPage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link href={`/articles/${article.slug}`}>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all cursor-pointer group">
-                      <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all cursor-pointer group border border-slate-200">
+                      <h2 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">
                         {article.title}
                       </h2>
                       {article.date && (
-                        <p className="text-sm text-slate-400 mb-2">{article.date}</p>
+                        <p className="text-sm text-slate-500 mb-2">{article.date}</p>
                       )}
                       {article.description && (
-                        <p className="text-slate-300">{article.description}</p>
+                        <p className="text-slate-600">{article.description}</p>
                       )}
                     </div>
                   </Link>
@@ -79,4 +79,3 @@ export default function ArticlesPage() {
     </main>
   );
 }
-

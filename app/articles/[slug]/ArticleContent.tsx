@@ -14,14 +14,14 @@ export default function ArticleContent({ slug }: { slug: string }) {
       >
         <Link
           href="/articles"
-          className="inline-flex items-center text-purple-300 hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-8 transition-colors"
         >
           ← 返回文章列表
         </Link>
 
-        <article className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-          <h1 className="text-4xl font-bold text-white mb-4">文章标题</h1>
-          <div className="prose prose-invert max-w-none text-slate-300">
+        <article className="bg-white rounded-lg shadow-md p-8 border border-slate-200">
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">文章标题</h1>
+          <div className="prose prose-slate max-w-none text-slate-700">
             <p>文章内容将在这里显示...</p>
             <p>当前文章 slug: {slug}</p>
           </div>
@@ -30,4 +30,3 @@ export default function ArticleContent({ slug }: { slug: string }) {
     </div>
   );
 }
-
