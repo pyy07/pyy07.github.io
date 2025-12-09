@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleContent from "./ArticleContent";
 
-// 由于使用静态导出，需要预定义所有可能的 slug
+// 预生成静态页面（可选，Vercel 会自动处理）
 export async function generateStaticParams() {
   // 这里可以从文件系统读取所有文章
   // 暂时返回一个示例，后续可以扩展为从文件系统读取

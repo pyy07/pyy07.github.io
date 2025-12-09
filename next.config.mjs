@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Vercel 原生支持 Next.js，不需要静态导出
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
-  // 允许动态路由在静态导出时工作
-  trailingSlash: true,
 };
 
 export default nextConfig;
