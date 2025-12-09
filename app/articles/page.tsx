@@ -30,7 +30,7 @@ export default function ArticlesPage() {
   }, []);
 
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative pb-20">
       <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.div

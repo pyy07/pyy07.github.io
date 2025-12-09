@@ -16,7 +16,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative pb-20">
       <Header />
       <ArticleContent slug={slug} />
       <Footer />

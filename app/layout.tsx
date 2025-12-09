@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: ["LukePan", "个人网站"],
   authors: [{ name: "LukePan" }],
   openGraph: {
-    title: "LukePan - 职业生涯",
+    title: "LukePan",
     description: "LukePan的个人网站",
     url: "https://pyy07.github.io",
     siteName: "LukePan",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "https://pyy07.github.io/og-image.jpg", // Replace with actual image
         width: 1200,
         height: 630,
-        alt: "LukePan - 职业生涯",
+        alt: "LukePan",
       },
     ],
     locale: "zh_CN",

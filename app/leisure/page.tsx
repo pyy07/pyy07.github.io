@@ -14,7 +14,7 @@ export default function LeisurePage() {
   return (
     <main className="min-h-screen relative">
       <Header />
-      <div className="w-full" style={{ height: 'calc(100vh - 80px)' }}>
+      <div className="w-full" style={{ height: 'calc(100vh - 140px)' }}>
         {isLoading ? (
           <div className="flex items-center justify-center h-full">
             <div className="text-slate-600">加载中...</div>
