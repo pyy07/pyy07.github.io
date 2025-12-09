@@ -58,6 +58,17 @@ export default function TelecomPage() {
                 <li>团队管理和技术领导</li>
               </ul>
 
+              <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">
+                CDMA 网络架构
+              </h2>
+              <div className="mt-6 mb-8 overflow-hidden rounded-lg border border-slate-200 bg-white">
+                <img
+                  src="/cdma_network.svg"
+                  alt="CDMA 网络架构图"
+                  className="w-full h-auto"
+                />
+              </div>
+
               <div className="mt-12 p-4 bg-blue-50 rounded-lg border border-blue-200">
                 <p className="text-sm text-slate-600">
                   💡 此页面结构支持未来扩展，可以添加更多详细内容、项目案例、技术细节等。
