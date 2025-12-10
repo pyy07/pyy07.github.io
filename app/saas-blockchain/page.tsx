@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SaasDiagram from "@/components/SaasDiagram";
 
 export default function SaasBlockchainPage() {
   return (
@@ -58,6 +59,13 @@ export default function SaasBlockchainPage() {
                 <li>全栈开发</li>
                 <li>产品设计和运营</li>
               </ul>
+
+              <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                电商模式架构图
+              </h2>
+              <div className="mb-8 -mx-4 md:mx-0">
+                <SaasDiagram />
+              </div>
 
               <div className="mt-12 p-4 bg-green-50 rounded-lg border border-green-200">
                 <p className="text-sm text-slate-600">
