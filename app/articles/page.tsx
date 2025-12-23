@@ -15,18 +15,24 @@ interface Article {
 
 export default function ArticlesPage() {
   const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 这里可以从API或文件系统获取文章列表
-    // 暂时使用示例数据
-    setArticles([
-      {
-        slug: "example-article",
-        title: "示例文章",
-        date: "2024-01-01",
-        description: "这是一篇示例文章"
+    const loadArticles = async () => {
+      try {
+        const response = await fetch('/api/articles');
+        if (response.ok) {
+          const data = await response.json();
+          setArticles(data);
+        }
+      } catch (error) {
+        console.error('Error loading articles:', error);
+      } finally {
+        setLoading(false);
       }
-    ]);
+    };
+
+    loadArticles();
   }, []);
 
   return (
