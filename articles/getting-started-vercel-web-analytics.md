@@ -56,8 +56,6 @@ bun i @vercel/analytics
 
 ## Add the `Analytics` component to your app
 
-The following instructions vary by framework. Select your framework below to view the appropriate integration:
-
 ### Next.js (Pages Router)
 
 The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with Next.js, including route support.
@@ -179,6 +177,38 @@ export default function App() {
 }
 ```
 
+```jsx filename="app/root.jsx"
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "@remix-run/react";
+import { Analytics } from "@vercel/analytics/remix";
+
+export default function App() {
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Analytics />
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  );
+}
+```
+
 ### Nuxt
 
 The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with Nuxt, including route support.
@@ -187,6 +217,17 @@ Add the following code to your main component:
 
 ```vue filename="app.vue"
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/nuxt';
+</script>
+
+<template>
+  <Analytics />
+  <NuxtPage />
+</template>
+```
+
+```vue filename="app.vue"
+<script setup>
 import { Analytics } from '@vercel/analytics/nuxt';
 </script>
 
@@ -209,11 +250,36 @@ import { injectAnalytics } from "@vercel/analytics/sveltekit";
 injectAnalytics({ mode: dev ? "development" : "production" });
 ```
 
+```js filename="src/routes/+layout.js"
+import { dev } from "$app/environment";
+import { injectAnalytics } from "@vercel/analytics/sveltekit";
+
+injectAnalytics({ mode: dev ? "development" : "production" });
+```
+
 ### Astro
 
 The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with Astro, including route support.
 
 Add the following code to your base layout:
+
+```astro filename="src/layouts/Base.astro"
+---
+import Analytics from '@vercel/analytics/astro';
+{/* ... */}
+---
+
+<html lang="en">
+	<head>
+      <meta charset="utf-8" />
+      <!-- ... -->
+      <Analytics />
+	</head>
+	<body>
+		<slot />
+    </body>
+</html>
+```
 
 ```astro filename="src/layouts/Base.astro"
 ---
@@ -249,6 +315,54 @@ export default defineConfig({
     },
   }),
 });
+```
+
+```js filename="astro.config.mjs"
+import { defineConfig } from "astro/config";
+import vercel from "@astrojs/vercel/serverless";
+
+export default defineConfig({
+  output: "server",
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true, // set to false when using @vercel/analytics@1.4.0
+    },
+  }),
+});
+```
+
+### Plain HTML
+
+For plain HTML sites, you can add the following script to your `.html` files:
+
+```html filename="index.html"
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
+
+> **💡 Note:** When using the HTML implementation, there is no need to install the
+> `@vercel/analytics` package. However, there is no route support.
+
+### Other Frameworks
+
+Import the `inject` function from the package, which will add the tracking script to your app. **This should only be called once in your app, and must run in the client**.
+
+> **💡 Note:** There is no route support with the `inject` function.
+
+Add the following code to your main app file:
+
+```ts filename="main.ts"
+import { inject } from "@vercel/analytics";
+
+inject();
+```
+
+```js filename="main.js"
+import { inject } from "@vercel/analytics";
+
+inject();
 ```
 
 ### Create React App
@@ -304,32 +418,15 @@ import { Analytics } from '@vercel/analytics/vue';
 </template>
 ```
 
-### Plain HTML
-
-For plain HTML sites, you can add the following script to your `.html` files:
-
-```html filename="index.html"
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+```vue filename="src/App.vue"
+<script setup>
+import { Analytics } from '@vercel/analytics/vue';
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
-```
 
-> **💡 Note:** When using the HTML implementation, there is no need to install the
-> `@vercel/analytics` package. However, there is no route support.
-
-### Other Frameworks
-
-Import the `inject` function from the package, which will add the tracking script to your app. **This should only be called once in your app, and must run in the client**.
-
-> **💡 Note:** There is no route support with the `inject` function.
-
-Add the following code to your main app file:
-
-```ts filename="main.ts"
-import { inject } from "@vercel/analytics";
-
-inject();
+<template>
+  <Analytics />
+  <!-- your content -->
+</template>
 ```
 
 ## Deploy your app to Vercel
